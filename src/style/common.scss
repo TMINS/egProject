@@ -1,0 +1,60 @@
+* {
+  padding: 0;
+  margin: 0;
+  transition: all 0.3s;
+}
+ul,
+li {
+  list-style: none;
+}
+
+body::-webkit-scrollbar,
+div::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #7d7d7d;
+  background-clip: padding-box;
+  min-height: 28px;
+  -webkit-border-radius: 2em;
+  -moz-border-radius: 2em;
+  border-radius: 2em;
+}
+div::-webkit-scrollbar-track,
+div::-moz-scrollbar-track {
+  background: rgb(239, 239, 239);
+  border-radius: 2px;
+}
+div::-webkit-scrollbar-thumb,
+div::-moz-scrollbar-thumb {
+  background: #bfbfbf;
+  border-radius: 10px;
+}
+div::-webkit-scrollbar-thumb:hover,
+div::-moz-scrollbar-thumb:hover {
+  background: #666;
+}
+div::-webkit-scrollbar-corner,
+div::-moz-scrollbar-corner {
+  background: #179a16;
+}
+
+body::-webkit-scrollbar-track {
+  background: rgb(239, 239, 239);
+  border-radius: 2px;
+} /*  */
+body::-webkit-scrollbar-thumb {
+  background: #bfbfbf;
+  border-radius: 10px;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+body::-webkit-scrollbar-corner {
+  background: #179a16;
+}

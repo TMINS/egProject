@@ -1,0 +1,6 @@
+
+/* 全局颜色变量 */
+
+@mixin create_color($color:black){
+    color: $color;
+}
