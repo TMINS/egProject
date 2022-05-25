@@ -10,9 +10,11 @@ import socket from "@/socket";
 
 const routeStore = useRouteStore();
 const router = useRouter();
-const io = new socket("http://192.168.8.183:3000");
+const io = new socket({ ws: "http://192.168.8.183:3000" });
 const load = () => {
   // routeStore.asyncLoadComponent("/test/index.vue");
+
+  io.asyncConnect();
   io.subscribe({
     destination: "chat message",
     callback: (res) => {
