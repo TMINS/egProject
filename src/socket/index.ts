@@ -37,10 +37,15 @@ export default class socket {
   protected reconnect_num: number = 1; // 重连次数
   max_reconnect_num: number = 5; //最大重连次数
 
-  connectCallback: Function | undefined = undefined; // 连接成功回调
-  errorCallback: Function | undefined = undefined; //错误回调
+  connectCallback: Function; // 连接成功回调
+  errorCallback: Function; //错误回调
 
-  constructor({ ws, header, connectCallback, errorCallback }: socketOption) {
+  constructor({
+    ws,
+    header,
+    connectCallback = () => {},
+    errorCallback = () => {},
+  }: socketOption) {
     this.ws = ws;
     this.header = header; // 请求头信息
     this.connectCallback = connectCallback;
@@ -119,6 +124,7 @@ export default class socket {
         // 连接断开
         this.customLog("连接断开：" + reason);
         this.connected = false;
+        this.connectCallback(reason, detail);
         if (errorReason.get(reason)) {
           //  显式断开  客户端或者服务端发起的断开 不进行重连
           this.monitorEvents.clear();
@@ -133,6 +139,8 @@ export default class socket {
     this.instance.on("connect_error", (err: any) => {
       this.customLog(err, "error");
       this.reconnect_num++;
+      this.errorCallback(err);
+
       if (this.reconnect_num > this.max_reconnect_num) {
         //
         this.instance.disconnect();
