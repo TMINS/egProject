@@ -1,4 +1,4 @@
-## 基础设施：vue3 + typescript + vite + pinia + vue-router + echarts
+## 基础设施：vue3 + typescript + vite + pinia + vue-router
 
 [vite](https://vitejs.cn/)
 [pinia](https://pinia.web3doc.top/)
